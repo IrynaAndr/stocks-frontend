@@ -1,0 +1,76 @@
+<aside class="profile-card" >
+    <header>
+      <!-- here’s the avatar -->
+      <a target="_blank" href="#">
+        <img src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg" class="hoverZoomLink">
+      </a>
+  
+      <!-- the username -->
+      
+      <h1 >{{ UserInfo.Name}} </h1>
+  
+      <!-- and role or location -->
+       <h2>{{ UserInfo.Email}}  </h2>
+  
+    </header>
+  
+    <!-- bit of a bio; who are you? -->
+    <div class="profile-bio">
+  
+      <p>Login: {{ UserInfo.Login }} </p>
+     
+      <p>stats: </p>
+      <p>New notifications: 
+        <u *ngIf="countNotif!=0" class="notificon">{{countNotif}}</u>
+        <u *ngIf="countNotif==0" class="notificonzero">0</u>
+      </p>
+
+      <button type="button" class="btn btn-primary float right m-2" 
+      data-toggle="modal" data-target="#exampleModal"
+      (click)="EditInfo(UserInfo)"
+      data-backdrop ="static" data-keyboard="false"
+      >
+          Edit personal information
+        </button>
+    </div>
+
+    
+  
+    <!-- some social links to show off -->
+    <ul class="profile-social-links">
+      <li>
+        <a target="_blank" href="">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href="">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </aside>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit profile information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="closeclick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-edit-info-form [user]="UserInfo" ></app-edit-info-form>
+          
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+  

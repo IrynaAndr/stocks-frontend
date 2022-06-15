@@ -1,0 +1,97 @@
+<button type="button" class="btn btn-light mr-1"
+                (click)="getBack()">Back</button>
+
+                <button type="button" class="btn btn-primary float right m-2" 
+                data-toggle="modal" data-target="#exampleModal"
+                (click)="addClick()"
+                data-backdrop ="static" data-keyboard="false"
+                >
+                    Add Stock Change
+                  </button>
+                  
+                  <button type="button" class="btn btn-primary float right m-2" 
+                  data-toggle="modal" data-target="#exampleModal"
+                  (click)="addClickTag()"
+                  data-backdrop ="static" data-keyboard="false"
+                  >
+                      Add tag
+                    </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                          (click)="closeclick()">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <app-edit-stockschange [stockChange]="stockChange" *ngIf="ActiveAddEditStockComp"></app-edit-stockschange>
+                          <app-tags-edit *ngIf="ActiveAddEditStockComp==false"></app-tags-edit>
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div>
+
+<h2 class="display-5 text-center">Changes</h2>                 
+<table class="tbale table-striped">
+    <thead>
+        <tr>
+            <th colspan="4">
+                <b>{{Stock.Name}}</b>'s changes
+            </th>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <th>Market value</th>
+            <th>Standart deviation</th>
+            <th>Date</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of StocksChangeList">
+            <td>{{dataItem.Weight}}</td>
+            <td>{{dataItem.MarketValue}}</td>
+            <td>{{dataItem.StandardDeviation}}</td>
+            <td>{{dataItem.Date}}</td>
+            
+            <td>
+                <button type="button" class="btn btn-warning mr-1"
+                data-toggle="modal" data-target="#exampleModal"
+                (click)="editClick(dataItem)"
+                >Edit</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger mr-1"
+                (click)="deleteClick(dataItem)">
+
+                    Delete</button>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+<h2 class="display-5 text-center">Tags</h2>
+
+<div class ="mytag" *ngFor="let dataItem of tagsList" >
+
+  <p>Type:  {{dataItem.Type}} 
+    <button type="button" class="btn btn-danger mr-1" 
+    (click)="deleteClickTag(dataItem.Id)"><i class="fa fa-times" aria-hidden="true"></i></button>
+    
+  </p>
+  <p>Tag's text: <b> {{dataItem.Tag}} </b> . Value: {{dataItem.Value}}</p>   
+</div>
+
+
+<style>
+    th{
+        padding-left:10px;
+    }
+</style>

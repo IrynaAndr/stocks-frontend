@@ -1,0 +1,35 @@
+<h3>Single-factor dispercive analisys:</h3>
+<div class="containers">
+    <p>Pick Event:</p>
+    <select name="Event" [(ngModel)]="Event"  (change)="PickEvent()"> 
+        <option *ngFor="let ev of EventsList" [value]="ev.type">{{ev.type}}</option> 
+    </select> 
+    <button (click)="Analis()" type="button" class="btn btn-primary btn-sm" style="margin-left: 2em;" >Get results</button>
+    <p style="font-size: small;">you will get analis on correlation between ocurence of this event and price change of the stocks related</p>
+</div>
+
+<div *ngIf="resultVisible" class="result">
+    <h3>Result</h3>
+    <li>
+    <p >{{result.Balanced}}</p>
+    <ul><p style="font-size:larger">{{result.Table}}</p></ul>
+    <p>List of means</p>
+    <ul *ngFor="let mean of result.Means">{{mean}}</ul>
+    <p>Number of cases looked: {{result.Observation}}</p>
+    <p>Total summary grand mean: {{result.GrandMean}}</p>
+    </li>
+</div>
+
+<div class="data" *ngIf="dataVisible">
+    <h3>Data found:</h3>
+    <table id="table">
+            <tr><th>Stock's name</th><th>Position to event</th><th>Price change</th></tr>
+            <tr *ngFor="let dt of dataUsed">
+                <td><i>{{dt.Name}}</i></td>
+                <td>{{dt.Event}}</td>
+                <td>{{dt.PriceChange}} $</td>
+            </tr>
+    </table>
+</div>
+<br><br>
+<button (click)="download()">Generate report about Value and Amount</button>

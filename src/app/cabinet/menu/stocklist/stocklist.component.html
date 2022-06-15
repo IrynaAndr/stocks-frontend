@@ -1,0 +1,91 @@
+<table>
+    <tr>
+    <th>
+    <div class="d-flex flex-row" >
+        <input [(ngModel)]="StockNameFilter" class="form-control"
+        (keyup)="FilterFn()" placeholder="Search by name">
+
+        <button type="button" class="btn btn-light" (click)="sortResult('Name',true)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+            </svg>    
+        </button>
+        <button type="button" class="btn btn-light" (click)="sortResult('Name',false)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+            </svg>    
+        </button>
+    </div>
+    </th>
+    <th>
+        <div class="d-flex flex-row" >
+            <input [(ngModel)]="StockMarketScopeFilter" class="form-control"
+            (keyup)="FilterFn()" placeholder="Search by Market sphere">
+        </div>
+    </th>
+</tr>
+</table>
+<table>
+<tr>
+    <th>
+        <p>Sort by price: 
+        <button type="button" class="btn btn-light" (click)="sortResult('MarketValue',false)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+            </svg>    
+        </button>
+        <button type="button" class="btn btn-light" (click)="sortResult('MarketValue',true)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+            </svg>    
+        </button>
+    </p>
+    </th>
+    <th>
+        <p> Filter Type
+        <select name="Type" [(ngModel)]="Type" (change)="FilterFn()"> 
+            <option selected value=""> All</option>
+            <option *ngFor="let type of typesList" [value]="type">{{type}}</option> 
+        </select> 
+        </p>
+    </th>
+    <th>
+        <p>Sort by risk (expcted return): 
+        <button type="button" class="btn btn-light" (click)="sortResult('Risk',false)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+            </svg>    
+        </button>
+        <button type="button" class="btn btn-light" (click)="sortResult('Risk',true)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+            </svg>    
+        </button>
+    </p>
+    
+    </th>
+</tr>
+</table>
+<div class="cards" *ngFor="let dataItem of StocksList">
+    <h2 class="title" style="float:left">{{dataItem.Name}}</h2>
+		<span class="tag" >{{dataItem.Symbol}}</span>
+        <div style="float:right; margin-top:5px;">
+            <span class="risk" >Expected return:{{dataItem.Risk}}%</span>
+            <span class="price" >{{dataItem.MarketValue}}$</span>
+            <button class="button1" (click)="openInfo(dataItem.Id)">
+                <span>See details</span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 24 24" width="24px" fill="none">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+		<p class="info"><br>Market sphere: {{dataItem.MarketScope}}. Type: {{dataItem.Type}}.</p>
+		
+    </div>
+
+<style>
+    th{
+        padding-left:10px;
+    }
+</style>

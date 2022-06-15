@@ -1,0 +1,94 @@
+
+ <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,700' rel='stylesheet' type='text/css'>
+<div class="containers">
+    <p>Pick first stock:</p>
+    <select name="Stock1" [(ngModel)]="Stock1" (change)="Pick1()" > 
+        <option *ngFor="let stock of StocksList1" [value]="stock.Id">{{stock.Name}}</option> 
+    </select> 
+    <button (click)="Compare()" type="button" class="btn btn-primary btn-sm" >Change</button>
+</div>
+<div class="containers"  >
+    <p>Pick second stock:</p>
+    <select name="Stock2" [(ngModel)]="Stock2" (change)="Pick2()"> 
+        <option *ngFor="let stock of StocksList2" [value]="stock.Id">{{stock.Name}}</option> 
+    </select>
+    <button (click)="Compare2()" type="button" class="btn btn-primary btn-sm" >Change</button> 
+</div>
+<button (click)="Compare()" type="button" class="btn btn-warning" style="margin-left: 43%">Compare</button>
+
+
+<div *ngIf="calc">
+   
+<br>
+<table style="margin-left: auto;
+margin-right: auto;">
+  <thead>
+    <tr>
+      <th></th>
+      
+      <th style="padding-right: 1em"><b>{{Name1}}</b></th>
+      <th><b>{{Name2}}</b></th>
+      <!--
+      <th>Average:</th>-->
+    </tr>
+  </thead>
+  <tbody>
+  
+    <tr>
+      <th>Company name</th>
+      <td>{{CompanyName1}}</td>
+      <td>{{CompanyName2}}</td>
+    </tr>
+    <tr>
+      <th>Net income</th>
+      <td>{{NetIncome1}}</td>
+      <td>{{NetIncome2}}</td>
+    </tr>
+    <tr>
+      <th>Popularity</th>
+      <td>#{{pop1}}</td>
+      <td>#{{pop2}}</td>
+      
+    </tr>
+    <tr>
+      <th>Change percent</th>
+      <td>{{changePercent1}}%</td>
+      <td>{{changePercent2}}%</td>
+      
+    </tr>
+    <tr>
+      <th>Current price</th>
+      <td>{{current1}}$</td>
+      <td>{{current2}}$</td>
+ 
+    </tr>
+    <tr>
+      <th>Mimimal price</th>
+      <td>{{min1}}$</td>
+      <td>{{min2}}$</td>
+ 
+    </tr>
+    <tr>
+      <th>Maximal price</th>
+      <td>{{max1}}$</td>
+      <td>{{max2}}$</td>
+
+    </tr>
+    <tr>
+      <th>profitability</th>
+      <td>{{prof1}}</td>
+      <td>{{prof2}}</td>
+
+    </tr>
+    <tr>
+        <th>volatility</th>
+        <td>{{volat1}}</td>
+        <td>{{volat2}}</td>
+  
+      </tr>
+   </tbody>
+</table>
+
+</div>
+    
+    

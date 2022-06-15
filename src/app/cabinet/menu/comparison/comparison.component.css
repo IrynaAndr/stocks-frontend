@@ -1,0 +1,13 @@
+.containers{
+    width:45%;
+    padding:5pxpx;
+    border: double 2px rgb(221, 236, 255);
+    display: inline-block;
+    margin:1em;
+    text-align: center;
+}
+td{
+    padding-right:30px;
+    padding-left:20px;
+    border: solid 1px black;
+}

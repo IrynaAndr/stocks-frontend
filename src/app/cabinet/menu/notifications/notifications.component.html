@@ -1,0 +1,33 @@
+
+<div *ngFor="let dataItem of Notif" >
+
+    <div class="notifRise" *ngIf="dataItem.Checked==false && dataItem.Type=='rise'"> 
+        <div>
+        <button (click)="Seen(dataItem)">Seen</button>
+        <button (click)="Delete(dataItem.Id)" style="float:right"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <p >{{dataItem.Text}}</p>
+    </div>
+    <div class="notifFall" *ngIf="dataItem.Checked==false && dataItem.Type=='fall'"> 
+        <div>
+        <button (click)="Seen(dataItem)">Seen</button>
+        <button (click)="Delete(dataItem.Id)" style="float:right"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <p>{{dataItem.Text}}</p>
+    </div>
+    <div class="notif" *ngIf="dataItem.Checked==false && dataItem.Type!='rise' && dataItem.Type!='fall'"> 
+        <div>
+        <button (click)="Seen(dataItem)">Seen</button>
+        <button (click)="Delete(dataItem.Id)" style="float:right"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <p>{{dataItem.Text}}</p>
+    </div>
+    <div class="notifseen" *ngIf="dataItem.Checked==true"> 
+        <div>
+            <button (click)="Seen(dataItem)" style="background-color:rgb(174, 174, 174)">Unseen</button>
+        <button (click)="Delete(dataItem.Id)" style="float:right; background-color:rgb(174, 174, 174)">
+            <i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <p>{{dataItem.Text}}</p>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="form-froup row">
+
+    <div class="col-sm-10">
+        <label style="padding-right:10px">Tag's text </label>
+        <input type="text" class="form-control" [(ngModel)]="Tag" placeholder="Enter tag's text">
+        <label style="padding-right:10px">type</label>
+        <input type="text" class="form-control" [(ngModel)]="Type" placeholder="Enter type">
+        <label style="padding-right:10px">Value (Enter numerical value if needed):</label>
+        <input type="number" class="form-control" [(ngModel)]="Value" placeholder="Enter numerical value if needed">
+        
+        <br>
+    </div>
+    <br>
+    <div class="footer">
+        <button (click)="addTag()"   class="btn btn-primary" >Add</button>
+        <!--<button (click)="updateStockChange()" *ngIf="stockChange.Id!=0"  class="btn btn-primary" >Update</button>-->
+        
+      </div>
+
+</div>

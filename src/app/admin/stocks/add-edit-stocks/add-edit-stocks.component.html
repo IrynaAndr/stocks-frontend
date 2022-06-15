@@ -1,0 +1,55 @@
+<div class="form-froup row">
+    <label class="col-sm-3 col-form-label">Stock Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="Name" placeholder="Enter stock name">
+        <input type="text" class="form-control" [(ngModel)]="CompanyName" placeholder="Enter company name">
+        <input type="text" class="form-control" [(ngModel)]="Symbol" placeholder="Enter stock's symbol">
+        
+        <label style="padding-right:10px">Type </label>
+       
+        <select type="text" name="type"    [(ngModel)]="Type2">
+            <option value="Common stock"> Common stock</option>
+            <option value="Preferred stock" selected="selected"> Preferred stock</option>
+        </select>
+        
+        <br>
+    
+        <label style="padding-right:10px">Market sphere </label>
+        <select type="text" name="MarketScope" #Type="ngModel"   [(ngModel)]="MarketScope2">
+            <option value="Aerospace Industry">Aerospace Industry</option>
+            <option value="Agriculture Industry"> Agriculture Industry</option>
+            <option value="Computer Industry" selected="selected"> Computer Industry</option>
+            <option value="Construction Industry"> Construction Industry</option>
+            <option value="Education Industry"> Education Industry</option>
+
+            <option value="Electronics Industry">Electronics Industry</option>
+            <option value="Energy Industry"> Energy Industry</option>
+            <option value="Entertainment Industry"> Entertainment Industry</option>
+            <option value="Food Industry"> Food Industry</option>
+            <option value="Healthcare Industry"> Healthcare Industry</option>
+
+            <option value="Hospitality Industry">Hospitality Industry</option>
+            <option value="Manufacturing Industry"> Manufacturing Industry</option>
+            <option value="Mining Industry"> Mining Industry</option>
+            <option value="Music Industry"> Music Industry</option>
+            <option value="News Media Industry">News Media Industry</option>
+
+            <option value="Pharmaceutical Industry">Pharmaceutical Industry</option>
+            <option value="Transport Industry">Transport Industry</option>
+            <option value="World Wide Web Industry">World Wide Web Industry</option>
+          </select>
+       
+        <input type="text" class="form-control" [(ngModel)]="Info" placeholder="Enter info">
+
+        <input type="number" min="0" class="form-control" [(ngModel)]="NetIncome" placeholder="Enter net income">
+        <input type="number" min="0" class="form-control" [(ngModel)]="WeightedAverage" placeholder="Enter weighted average shares outstanding">
+
+    </div>
+    <br>
+    <div class="footer">
+        <button (click)="addStock()" *ngIf="stock.Id==0"  class="btn btn-primary" >Add</button>
+        <button (click)="updateStock()" *ngIf="stock.Id!=0"  class="btn btn-primary" >Update</button>
+        
+      </div>
+
+</div>

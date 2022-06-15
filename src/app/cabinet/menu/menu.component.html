@@ -1,0 +1,66 @@
+
+	<div class="container">
+
+		</div>
+				<div class="tabs effect-4">
+			<!-- tab-title -->
+			<input type="radio" id="tab-1" name="tab-effect-4" [checked]="tabs[0]" (click)="tabclick(1)">
+			<span>
+				<i class="fa fa-home"></i><span>My portfolio</span>
+			</span>
+
+			<input type="radio" id="tab-2" name="tab-effect-4" [checked]="tabs[1]" (click)="tabclick(2)">
+			<span>
+				<i class="fa fa-btc"></i><span>Stocks</span>
+			</span>
+
+			<input type="radio" id="tab-3" name="tab-effect-4" [checked]="tabs[2]" (click)="tabclick(3)">
+			<span>
+				<i class="fa fa-bar-chart"></i><span>Analysis</span>
+			</span>
+
+			<input type="radio" id="tab-4" name="tab-effect-4" [checked]="tabs[3]"  (click)="tabclick(4)">
+			<span>
+				<i class="fa fa-heart"></i><span>Recomendations</span>
+			</span>
+
+			<input type="radio" id="tab-5" name="tab-effect-4" [checked]="tabs[4]" (click)="tabclick(5)">
+			<span>
+				<i class="fa fa-envelope"></i><span>Notifications</span>
+			</span>
+
+			<!-- tab-content -->
+			<div class="tab-content" >
+				<section id="tab-item-1">
+                    <div class="minor-fix">
+						<app-portfolio></app-portfolio>
+                    </div>
+				</section>
+				<section id="tab-item-2">
+                    <div class="minor-fix">
+					<app-stockcontainer></app-stockcontainer>
+                    </div>
+				</section>
+				<section id="tab-item-3">
+					<div class="minor-fix">
+                        <app-analisys></app-analisys>
+                        </div>
+				</section>
+				<section id="tab-item-4">
+					<div class="minor-fix">
+                        <app-recomendations></app-recomendations>
+                        </div>
+				</section>
+				<section id="tab-item-5">
+					<div class="minor-fix">
+                        <app-notifications></app-notifications>
+                        </div>
+				</section>
+			</div>
+		</div>
+				
+<style>
+    .minor-fix{
+        padding-top:65px;
+    }
+</style>

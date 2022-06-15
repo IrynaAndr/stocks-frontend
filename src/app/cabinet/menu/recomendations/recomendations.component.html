@@ -1,0 +1,51 @@
+
+<div class="container">
+    <h3>Recomendation list:</h3>
+    <div class="recom" *ngFor="let dataItem of Recomendations">
+        <h5> <span class="tag" >smb</span> {{dataItem.Name}}</h5>
+        <button class="button1" (click)="openInfo(dataItem.Id_stocks)">
+            <span>See details</span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 0 24 24" width="24px" fill="none">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z" fill="currentColor" />
+            </svg>
+        </button>
+    </div>
+ </div>
+
+ <div *ngFor="let dataItem of myStocks">
+     <div>
+     <h5>Since you chose <u>{{dataItem.Name}}</u> you might like:</h5>
+     <ul>
+         <li *ngFor="let item of Similar[dataItem.Id]">
+            <p><b><a (click)="setCookie(item.Id)" routerLink="/StockDetails" target="">{{item.Name}}</a></b></p>
+         </li>
+     </ul>
+     </div>
+ </div>
+
+ <style>
+     a{
+         cursor:pointer;
+         color:rgb(89, 89, 214);
+         text-decoration:underline;
+         font-style:italic;
+     }
+    a:link {
+
+      text-decoration: underline;
+    }
+    
+    a:visited {
+      text-decoration: none;
+      color:rgb(88, 0, 195)
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    a:active {
+      text-decoration: underline;
+    }
+    </style>

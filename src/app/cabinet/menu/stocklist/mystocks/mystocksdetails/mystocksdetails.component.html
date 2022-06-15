@@ -1,0 +1,88 @@
+<div class="mystocks">
+    
+    <div style="display: inline-block; width:60%">
+        
+    <h5>Purchase history:</h5>
+    <table class="table table-striped" style="width:97%; background-color:white; line-height: 1;">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>For (value)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataItem of HistoryList">
+                <td>{{dataItem.Event}}</td>
+                <td>{{dataItem.Amount}}</td>
+                <td>{{dataItem.Date}}</td>
+                <td>{{dataItem.Value}}</td>
+            </tr>
+            <tr *ngFor="let dataItem of TotalBoughtList">
+                <td><b>{{dataItem.Res}}</b></td>
+                <td>{{dataItem.Amount}}</td>
+                <td></td>
+                <td>{{dataItem.Value}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p>Stocks left:  {{maxsold}}  </p>
+
+</div>
+    <div style="display: inline-block; ">
+        <table class="table table-striped" style="width:100%; background-color:white; line-height: 1;">
+            <tbody>
+                <tr>
+                    <td><b>Earnings: {{earnings}}</b></td>
+                </tr>
+                <tr>
+                    <td>Latest market value per stock: <b>{{ service.marketvalue}}</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Selling all now will give: <b>{{maxsold  * service.marketvalue}}</b>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2"
+        (click)="addClick()"
+        data-backdrop ="static" data-keyboard="false">Sell Stocks</button>
+    </div>
+</div>
+<app-stockdetails></app-stockdetails>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sell stocks</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="closeclick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-froup row">
+
+                <div class="col-sm-10">
+                    <label style="padding-right:10px">Amount</label>
+                    <input type="number" class="form-control" [(ngModel)]="Amount" min="0" max="maxsold">
+                    <label style="padding-right:10px">Fee %</label>
+                    <input type="number" class="form-control" [(ngModel)]="Fee" min="0" max="100">
+                
+                <div class="footer"><p></p>
+                    <button (click)="addUserSold()"  class="btn btn-primary" >Sell </button>
+                    </div>
+            
+            </div>
+          
+        </div>
+       
+      </div>
+    </div>
+  </div>

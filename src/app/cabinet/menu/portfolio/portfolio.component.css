@@ -1,0 +1,36 @@
+.btnSee {
+    float:right;
+    border: solid 1px rgb(74, 74, 132);
+    background-color:white;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    margin:0.2em;
+}
+.btnSee:hover {
+    background-color:rgba(147, 239, 239, 0.564);
+    padding: 0.2em 0.75em;
+    color:rgb(64, 94, 212);
+
+}
+
+.stock{
+    border: solid 2px rgb(168, 168, 168);
+    padding-left: 1em;
+    padding-right: 0.5em;
+    margin-bottom:0.1em;
+    border-left:solid greenyellow 1.5em;
+  
+}
+.risk {
+    display: inline-block;
+    background-color: #fee8db;
+    color:  #542525;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-left:1em;
+    margin-top:0.5em;
+    padding: 0.5em 0.75em;
+    line-height: 1;
+    border-radius: 6px;
+    font-family: "Spline Sans", sans-serif;
+}

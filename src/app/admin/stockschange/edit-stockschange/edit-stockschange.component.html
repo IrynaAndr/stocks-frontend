@@ -1,0 +1,35 @@
+<div class="form-froup row">
+
+    <div class="col-sm-10">
+        <label style="padding-right:10px">Weight </label>
+        <input type="number" class="form-control" [(ngModel)]="Weight" placeholder="Enter weight">
+        <label style="padding-right:10px">Market value</label>
+        <input type="number" class="form-control" [(ngModel)]="MarketValue" placeholder="Enter Market Value">
+        <label style="padding-right:10px">Standard deviation </label>
+        <input type="number" class="form-control" [(ngModel)]="StandardDeviation" placeholder="Enter standart deviation">
+        
+        <label style="padding-right:10px">Date </label>
+       
+        <br>
+        
+        <input type="date" class="form-control" [(ngModel)]="Date" >
+        
+        
+        <br>
+        <!--
+        <p>or chose current date:</p>
+        
+        <div>
+            <input type="checkbox" id="today" name="today" [checked]="today"  >
+            <label for="today">Today's date</label>
+          </div>
+        -->  
+    </div>
+    <br>
+    <div class="footer">
+        <button (click)="addStockChange()" *ngIf="stockChange.Id==0"  class="btn btn-primary" >Add</button>
+        <button (click)="updateStockChange()" *ngIf="stockChange.Id!=0"  class="btn btn-primary" >Update</button>
+        
+      </div>
+
+</div>

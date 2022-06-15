@@ -1,0 +1,45 @@
+<button class="button button3" (click)="onClick(1)">All stocks</button>
+<button class="button button3" (click)="onClick(2)">My stocks</button>
+<button class="button button3" (click)="onClick(3)">Comparison</button>
+
+    <div *ngIf="tabs[0]" > 
+    <app-stocklist></app-stocklist>
+    </div>
+    <div *ngIf="tabs[1]"> 
+    <app-mystocks></app-mystocks>
+    </div>
+    <div *ngIf="tabs[2]"> 
+    <app-comparison></app-comparison>
+    </div>
+
+
+<style>
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+.button3:focus {
+  background-color: #f44336;
+  color: white;
+}
+.button {
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid #f44336;
+}
+
+</style>

@@ -1,0 +1,23 @@
+<div style="border: thick double #517d8f;padding:5px">
+<h5><u>Populate stock changes quickly with data </u></h5>
+<table style="margin-top:10px;margin-left: auto; margin-right: 0;">
+    <tr>
+        <td colspan="3">
+            <label style="padding-right:10px">Chose date (leave empty for today's date automaticly): </label>
+        </td>
+    </tr>
+    <tr >
+    <td>
+    <label>Date:</label>
+    </td>
+    
+    <td>
+    <input type="date" class="form-control" [(ngModel)]="Date" ></td>
+    <td>
+    <button type="button" class="btn btn-primary mr-1"
+                    (click)="populateStockChange()">Populate</button>
+                    </td>
+                    </tr>
+                </table>
+</div>
+

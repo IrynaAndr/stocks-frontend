@@ -1,0 +1,30 @@
+.result{
+    display: inline-block;
+    border: 1px solid rgb(109, 120, 147);
+    padding: 0.5rem 1rem;
+    margin: 10px;
+    vertical-align: middle;
+    text-align:left;
+    background-color: rgb(239, 255, 190); 
+    border:dashed 2px rgb(42, 114, 165);
+    width: 55%;
+}
+.data{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 10px;
+    vertical-align: middle;
+    text-align:left;
+    background-color: rgb(246, 255, 219); 
+    border:dashed 2px navy;
+    width: 40%;
+    padding-bottom: 2em;
+}
+table{
+    border: 1px solid black;
+}
+tr, th, td {
+    padding-left: 15px;
+    border-bottom: 1px solid navy 
+    
+}

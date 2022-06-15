@@ -1,0 +1,68 @@
+<div style="width:60%; padding:1em; display: inline-block;">
+    <div style=" padding-top:1em">
+        <h3>Income graph:</h3>
+        <!--
+        <button class="button button3" (click)="balnceDaily()">by days</button>
+        <button class="button button3" (click)="balnceTransactions()">by transactions</button>
+        <div *ngIf="!Daily">
+            <div *ngIf="chart2"> 
+                <canvas id="canvas2">{{chart2}}</canvas>
+            </div>
+        </div>
+        -->
+        <div *ngIf="Daily == false">
+            <div *ngIf="chart"> 
+                <canvas id="canvas">{{chart}}</canvas>
+            
+            </div>
+        </div>
+        
+    </div>
+    <br>
+    <p>portfolio risk:  <span class="risk" >{{FinalRisk}}% </span></p>
+    <br>
+    
+
+    
+</div>
+
+<div style="width:35%; padding:1em; float:right;align-items: left;">
+    <div style ="min-height: 1em; background-color :rgba(0, 128, 0, 0.5)"> </div>
+    <div >
+        <h2>Your stocks:</h2>
+        <h4><i class="fa fa-arrow-up" aria-hidden="true" ></i> Raising :</h4>
+        <div *ngFor="let dataItem of myStocks">
+            <div *ngIf="dataItem.behavior == 'Raising'"  class="stock">
+                    <p>  {{dataItem.Name}}
+                    <button (click)="openInfo(dataItem.Id)" class="btnSee">See</button>
+                    </p>
+
+            </div>
+        </div>
+        <h4>  <i class="fa fa-arrow-down" aria-hidden="true" ></i>Descending :</h4>
+        <div *ngFor="let dataItem of myStocks"  >
+            <div *ngIf="dataItem.behavior == 'Falling'" class="stock" style="border-left:solid rgb(255, 80, 60) 1.5em;">
+                <p>{{dataItem.Name}}
+                <button (click)="openInfo(dataItem.Id)" class="btnSee">See</button>
+            </p>
+            </div>
+        </div>
+        <div style ="min-height: 1em; background-color :rgba(0, 128, 0, 0.5)"> </div>
+
+</div>
+</div>
+<div>
+    <div style="width:50%; padding:1em; display: inline-block;">
+        <h3>User stocks distribution</h3>
+        <div *ngIf="chartValue" style="width:80%;max-height:300px"> 
+        <canvas id="pieChart">{{chartValue}}</canvas>
+        </div>
+    </div> 
+    <div style="width:50%; padding:1em; display: inline-block;">
+        <h3>User stocks efficiency</h3>
+        <div *ngIf="chartAmount" style="width:100%;max-width:600px"> 
+        <canvas id="barChart">{{chartAmount}}</canvas>
+        </div>
+    </div>
+    
+</div>

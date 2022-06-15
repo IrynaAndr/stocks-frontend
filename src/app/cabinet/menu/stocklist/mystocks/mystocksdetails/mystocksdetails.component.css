@@ -1,0 +1,7 @@
+.mystocks{
+   border: dashed 2px orange;
+   background-color: rgb(255, 235, 171); 
+   padding: 0.5em 1em;
+   margin:0.5em;
+   border-radius: 15px;
+}
